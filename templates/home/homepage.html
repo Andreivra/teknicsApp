@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+    <br><br><br>
+    <div class="container-fluid align-center">
+        <br><br>
+        <div class="row gy-5">
+            <div class="col-sm-6 mb-3 mb-sm-3">
+                <div class="card w-25 mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Service </h5>
+                        <p class="card-text">Task-uri pentru servisare produse.</p>
+                        <a href="{% url 'list-of-tasks' %}" class="btn btn-primary">Lista task-uri</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card w-25 mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Supply Items</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card w-25 mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Supply Items</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

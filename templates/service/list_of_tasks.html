@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+ <h1>Lista task-uri: {{ current_date_time|date:"d/m/Y" }}</h1><a href="{% url 'create-task' %}" class="btn btn-primary">Task nou</a>
+<div class="container-fluid align-center">
+        <div class="row">
+            <div class="col-md-8">
+                {% if all_tasks %}
+                    <table class="table table-secondary table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Company name</th>
+                        <th scope="col">Contact name</th>
+                        <th scope="col">End date</th>
+                        <th scope="col">Created at</th>
+                        <th scope="col">Service Status</th>
+                        <th scope="col">Task</th>
+{#                        <th scope="col">Assigned to</th>#}
+{#                        <th scope="col">Department</th>#}
+                        <th scope="col">Agent</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for task in all_tasks %}
+                        <tr>
+                            <td>{{ task.company_name }}</td>
+                            <td>{{ task.contact_name }}</td>
+                            <td>{{ task.end_date|date:"d-m-Y" }}</td>
+                            <td>{{ task.created_at|date:"d-m-Y" }}</td>
+                            <td>{{ task.select_status|title }}</td>
+                            <td>{{ task.task_description }}</td>
+                            <td>{{ task.agent_name }}</td>
+                            <td>
+                                <a href="{% url 'task-details' task.id %}" class="btn btn-secondary">Detalii</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <br><br>
+                    <h3 class="text-center"> Nu avem TASK-uri create</h3>
+                    <br><br>
+                    <a href="{% url 'create-task' %}" class="btn btn-primary">Task nou</a>
+                {% endif %}
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
