@@ -9,6 +9,7 @@ class Company(models.Model):
     agent_name = models.CharField(max_length=30)
     phone = models.IntegerField()
     email = models.EmailField(max_length=50)
+    task_name = models.CharField(max_length=15)
     task_description = models.TextField(max_length=300)
     start_date = models.DateField()
     end_date = models.DateField()

@@ -20,7 +20,6 @@
                     </tr>
                     </thead>
                     <tbody>
-
                         <tr>
                             <td>{{ company.contact_name }}</td>
                             <td>{{ company.created_at|date:"d-m-Y" }}</td>
@@ -29,10 +28,12 @@
                             <td>{{ company.agent_name }}</td>
                         </tr>
                         <br><br>
-                </tbody>
+                    </tbody>
                 </table>
                 <div class="card">
                     <div class="card-body">
+                        {{ company.task_name }}
+                        <br>
                         {{ company.task_description }}
                      </div>
                 </div>

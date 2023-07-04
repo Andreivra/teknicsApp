@@ -33,7 +33,7 @@
                             <td>{{ task.end_date|date:"d-m-Y" }}</td>
                             <td>{{ task.created_at|date:"d-m-Y" }}</td>
                             <td>{{ task.select_status|title }}</td>
-                            <td>{{ task.task_description }}</td>
+                            <td>{{ task.task_name }}</td>
                             <td>{{ task.agent_name }}</td>
                             <td>
                                 <a href="{% url 'task-details' task.id %}" class="btn btn-secondary btn-sm">Detalii</a>
