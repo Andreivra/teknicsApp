@@ -6,33 +6,54 @@
 {% block content %}
 
     <br><br><br>
-    <div class="container-fluid d-flex justify-content-evenly">
+    <div class="container-fluid d-flex justify-content-md-center">
         <br><br>
-        <div class="row row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col-sm-6 mb-3 mb-sm-3">
-                <div class="card mb-3">
+                <div class="card d-flex justify-content-center" id="div">
                     <div class="card-body">
                         <h5 class="card-title">Service </h5>
                         <p class="card-text">Task-uri pentru servisare produse.</p>
-                        <a href="{% url 'list-of-tasks' %}" class="btn btn-primary">Lista task-uri</a>
+                         <div class="card-footer text-center">
+                             <a href="{% url 'list-of-tasks' %}" class="button button1 justify-content-center">Lista task-uri</a>
+
+                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 mb-3 mb-sm-3">
-                <div class="card mb-3">
+                <div class="card d-flex justify-content-center" id="div">
                     <div class="card-body">
-                        <h5 class="card-title">Supply Items</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title">Lista produse</h5>
+                        <p class="card-text">Lista produse pentru aprovizionare.</p>
+                        <a href="#" class="button button1">Lista produse</a>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 mb-3 mb-sm-3">
-                <div class="card mb-3">
+                <div class="card d-flex justify-content-center" id="div">
                     <div class="card-body">
                         <h5 class="card-title">Supply Items</h5>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="button button1">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-3 mb-sm-3">
+                <div class="card d-flex justify-content-center" id="div">
+                    <div class="card-body">
+                        <h5 class="card-title">Supply Items</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="button button1">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-3 mb-sm-3">
+                <div class="card d-flex justify-content-center" id="div">
+                    <div class="card-body">
+                        <h5 class="card-title">Supply Items</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="button button1">Go somewhere</a>
                     </div>
                 </div>
             </div>

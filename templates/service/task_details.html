@@ -1,5 +1,6 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
+{% load static %}
 {% block title %} Detalii {{ company.company_name }} {% endblock %}
 
 {% block content %}
@@ -41,11 +42,11 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <a href="{% url 'list-of-tasks' %}" class="btn btn-primary">Back</a>
+                            <a href="{% url 'list-of-tasks' %}" class="button button1">Back</a>
 
-                            <a href="{% url 'task-update' company.id %}" class="btn btn-secondary">Update</a>
+                            <a href="{% url 'task-update' company.id %}" class="button button3">Update</a>
 
-                            <a href="{% url 'task-delete' company.id %}" class="btn btn-danger">Delete</a>
+                            <a href="{% url 'task-delete' company.id %}" class="button button2">Delete</a>
                         </div>
                     </div>
                 </div>
