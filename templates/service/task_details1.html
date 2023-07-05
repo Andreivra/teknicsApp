@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %} Task for {{ company.company_name }} details{% endblock %}
+
+{% block content %}
+    <br><br><br>
+    <div class="container-fluid d-flex justify-content-evenly">
+        <div class="row">
+            <div class="card-group">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <h1>
+                                <strong>
+                                    {{ company.company_name }}
+                                </strong>
+                            </h1>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <strong>E-mail: </strong>{{ company.email }}<br/>
+                                <strong>Phone Number: </strong>{{ company.phone }}<br/>
+                                <strong>Description: </strong>{{ company.task_description }}<br/>
+                                <strong>Start date: </strong>{{ company.start_date|date:"d-m-Y" }}<br/>
+                                <strong>End date: </strong>{{ company.end_date|date:"d-m-Y" }}<br/>
+                                <strong>Service status: </strong>{{ company.select_status }}<br/>
+
+                                <strong>Record ID: </strong>{{ company.id }}<br/>
+                                <br><br>
+                                <a href="{% url 'list-of-tasks' %}" class="btn btn-primary">Back</a>
+
+                                <a href="{% url 'task-update' company.id %}" class="btn btn-secondary">Update</a>
+
+                                <a href="{% url 'task-delete' company.id %}" class="btn btn-danger">Delete</a>
+
+                            </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            Created at: {{ company.created_at|date:"d-m-Y H:i:s" }} / Last Update
+                            at: {{ company.updated_at|date:"d-m-Y H:i:s" }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
