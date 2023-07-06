@@ -26,8 +26,8 @@
                     <tr>
                         <th scope="col">Company name</th>
                         <th scope="col">Contact name</th>
-                        <th scope="col">End date</th>
                         <th scope="col">Created at</th>
+                         <th scope="col">End date</th>
                         <th scope="col">Service Status</th>
                         <th scope="col">Task</th>
 {#                        <th scope="col">Assigned to</th>#}
@@ -41,8 +41,8 @@
                         <tr>
                             <td>{{ task.company_name }}</td>
                             <td>{{ task.contact_name }}</td>
-                            <td>{{ task.end_date|date:"d-m-Y" }}</td>
                             <td>{{ task.created_at|date:"d-m-Y" }}</td>
+                            <td>{{ task.end_date|date:"d-m-Y" }}</td>
                             <td>{{ task.select_status|title }}</td>
                             <td>{{ task.task_name }}</td>
                             <td>{{ task.agent_name }}</td>

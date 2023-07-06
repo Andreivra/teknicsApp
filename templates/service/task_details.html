@@ -13,6 +13,8 @@
                     <thead>
                     <tr>
                         <th scope="col">Persoana Contact</th>
+                        <th scope="col">Numar contact</th>
+                        <th scope="col">E-mail</th>
                         <th scope="col">Data creare</th>
                         <th scope="col">Data finalizare</th>
                         <th scope="col">Status</th>
@@ -23,6 +25,8 @@
                     <tbody>
                         <tr>
                             <td>{{ company.contact_name }}</td>
+                            <td>{{ company.phone }}</td>
+                            <td>{{ company.email }}</td>
                             <td>{{ company.created_at|date:"d-m-Y" }}</td>
                             <td>{{ company.end_date|date:"d-m-Y" }}</td>
                             <td>{{ company.select_status|title }}</td>

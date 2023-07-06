@@ -11,7 +11,7 @@ class TaskForm(forms.ModelForm):
         widgets = {
             'company_name': TextInput(attrs={'placeholder': 'Please enter clients name', 'class': 'form-control'}),
             'contact_name': TextInput(attrs={'placeholder': 'Please enter clients contact person name', 'class': 'form-control'}),
-            'agent_name': TextInput(attrs={'placeholder': 'Please enter agent name', 'class': 'form-control'}),
+            'agent_name': Select(attrs={'class': 'form-select'}),
             'phone': NumberInput(attrs={'placeholder': 'Please enter contact phone number', 'class': 'form-control'}),
             'email': EmailInput(attrs={'placeholder': 'Please enter clients email',  'class': 'form-control'}),
             'task_name': TextInput(attrs={'placeholder': 'Please enter service problem', 'class': 'form-control'}),
@@ -20,7 +20,6 @@ class TaskForm(forms.ModelForm):
             'start_date': DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'end_date': DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'select_status': Select(attrs={'class': 'form-select'}),
-            # 'trainer': Select(attrs={'class': 'form-select'})
         }
 
     def clean(self):
@@ -49,7 +48,7 @@ class TaskUpdateForm(forms.ModelForm):
         widgets = {
             'company_name': TextInput(attrs={'placeholder': 'Please enter clients name', 'class': 'form-control'}),
             'contact_name': TextInput(attrs={'placeholder': 'Please enter clients contact person name', 'class': 'form-control'}),
-            'agent_name': TextInput(attrs={'placeholder': 'Please enter agent name', 'class': 'form-control'}),
+            'agent_name': Select(attrs={'class': 'form-select'}),
             'phone': NumberInput(attrs={'placeholder': 'Please enter contact phone number', 'class': 'form-control'}),
             'email': EmailInput(attrs={'placeholder': 'Please enter clients email',  'class': 'form-control'}),
             'description': Textarea(attrs={'placeholder': 'Please enter service problem', 'class': 'form-control',
