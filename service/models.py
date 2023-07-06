@@ -1,4 +1,5 @@
 from django.db import models
+from agent.models import Agent
 
 
 class Company(models.Model):
@@ -6,7 +7,7 @@ class Company(models.Model):
 
     company_name = models.CharField(max_length=30)
     contact_name = models.CharField(max_length=30)
-    agent_name = models.CharField(max_length=30)
+    agent_name = models.ForeignKey(Agent, on_delete=models.CASCADE, null=True)
     phone = models.IntegerField()
     email = models.EmailField(max_length=50)
     task_name = models.CharField(max_length=15)
@@ -15,7 +16,6 @@ class Company(models.Model):
     end_date = models.DateField()
     active = models.BooleanField(default=True)
     select_status = models.CharField(choices=select_status_options, max_length=13)
-#    trainer = models.ForeignKey(Mecanic, on_delete=models.CASCADE, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)  # auto-now_add salveaza data si ora de creere
     updated_at = models.DateTimeField(auto_now=True)  # auto_now salveaza data ora cand se modifica intrarea

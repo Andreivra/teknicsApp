@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Teknics APP {% endblock %}
+
+{% block content %}
+ <h1 class="d-flex justify-content-center">Lista agenti</h1>
+<div class="container-fluid align-center d-flex justify-content-center">
+        <div class="card">
+            <div class="card-body">
+                <a href="{% url 'create-task' %}" class="button button1 me-md-4">Task nou</a>
+                <a href="{% url 'homepage' %}" class="button button1 me-md-8">Home</a>
+            </div>
+        </div>
+</div>
+<div class="container-fluid align-center d-flex justify-content-center">
+        <div class="row">
+            <div class="col-md-12">
+                {% if all_agents %}
+                    <table class="table table-secondary table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nume Agent</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Created at</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                      {% for agent in all_agents %}
+                    <tbody>
+
+                        <tr>
+                            <td>{{ agent.first_name }} {{ agent.last_name }}</td>
+                            <td>{{ agent.email }}</td>
+                            <td>{{ agent.created_at|date:"d-m-Y" }}</td>
+                            <td>
+                                <a href="#" class="button button3 me-md-1" type="button">Detalii</a>
+                            </td>
+                        </tr>
+                        <br><br>
+                    {% endfor %}
+                {% else %}
+                    <br><br>
+                    <h3 class="text-center"> Nu avem agenti creati</h3>
+                    <br><br>
+                    <a href="{% url 'create-agent' %}" class="btn btn-primary">Task nou</a>
+                {% endif %}
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
