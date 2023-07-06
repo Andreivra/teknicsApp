@@ -16,9 +16,12 @@ class Company(models.Model):
     end_date = models.DateField()
     active = models.BooleanField(default=True)
     select_status = models.CharField(choices=select_status_options, max_length=13)
-
+    complete = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)  # auto-now_add salveaza data si ora de creere
     updated_at = models.DateTimeField(auto_now=True)  # auto_now salveaza data ora cand se modifica intrarea
 
     def __str__(self):
         return f"{self.company_name} {self.task_description}"
+
+    class Meta:
+        ordering = ['complete']

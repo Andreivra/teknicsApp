@@ -56,5 +56,5 @@ class TaskUpdateForm(forms.ModelForm):
             'start_date': DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'end_date': DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'select_status': Select(attrs={'class': 'form-select'}),
-            # 'trainer': Select(attrs={'class': 'form-select'})
+
         }
