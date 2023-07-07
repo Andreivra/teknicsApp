@@ -37,20 +37,33 @@
                     </tr>
                     </thead>
                     <tbody>
-
-                        <tr>
-                            <td>{{ task.company_name }}</td>
-                            <td>{{ task.contact_name }}</td>
-                            <td>{{ task.created_at|date:"d-m-Y" }}</td>
-                            <td>{{ task.end_date|date:"d-m-Y" }}</td>
-                            <td>{{ task.select_status|title }}</td>
-                            <td>{{ task.task_name }}</td>
-                            <td>{{ task.agent_name }}</td>
-                            <td>
-                                <a href="{% url 'task-details' task.id %}" class="button button3 me-md-1" type="button">Detalii</a>
-                            </td>
-                        </tr>
-                        <br><br>
+                        {% if not task.complete %}
+                            <tr>
+                                <td>{{ task.company_name }}</td>
+                                <td>{{ task.contact_name }}</td>
+                                <td>{{ task.created_at|date:"d-m-Y" }}</td>
+                                <td>{{ task.end_date|date:"d-m-Y" }}</td>
+                                <td>{{ task.select_status|title }}</td>
+                                <td>{{ task.task_name }}</td>
+                                <td>{{ task.agent_name }}</td>
+                                <td>
+                                    <a href="{% url 'task-details' task.id %}" class="button button3 me-md-1" type="button">Detalii</a>
+                                </td>
+                            </tr>
+                            <br><br>
+                        {% else %}
+                            <tr>
+                                <td>{{ task.company_name }}</td>
+                                <td>{{ task.contact_name }}</td>
+                                <td>{{ task.created_at|date:"d-m-Y" }}</td>
+                                <td>{{ task.end_date|date:"d-m-Y" }}</td>
+                                <td>{{ task.select_status|title }}</td>
+                                <td>{{ task.task_name }}</td>
+                                <td>{{ task.agent_name }}</td>
+                                <td>Incheiat<a href="{% url 'task-delete' task.id %}" class="button button2">Delete</a></td>
+                            </tr>
+                            <br><br>
+                        {% endif %}
                     {% endfor %}
                 {% else %}
                     <br><br>
