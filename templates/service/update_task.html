@@ -9,7 +9,7 @@
                 <br><br>
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="text-center">Update - {{ company.task_name }}</h3>
+                        <h3 class="text-center">Update - {{ company.task_name }} - from {{ company.created_at|date:"d/m/Y" }}</h3>
                     </div>
                     <form method="post">
                         {% csrf_token %} {# CSRF TOKER -> CROSS SITE REQUEST FORGERY #}

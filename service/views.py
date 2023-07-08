@@ -41,13 +41,6 @@ class ServiceTaskListView(ListView):
         data = super().get_context_data(**kwargs)
         now = datetime.now()
         data['current_date_time'] = now
-    #    trainers = Trainer.objects.all()
-    #    data['get_all_trainers'] = trainers
-    #    students = Student.objects.filter(active=True)
-    #    my_filter = StudentFilters(self.request.GET, queryset=students)
-    #    students = my_filter.qs
-    #    data['all_students'] = students
-    #    data['form_filters'] = my_filter.form
         return data
 
 

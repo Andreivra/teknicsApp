@@ -1,67 +1,79 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block title %} Teknics APP {% endblock %}
 
 {% block content %}
-<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <a href="{% url 'create-task' %}" class="button button1 me-md-2" type="button">Task nou</a>
-</div>
  <h1 class="d-flex justify-content-center">Lista task-uri: {{ current_date_time|date:"d/m/Y" }}</h1>
 <div class="container-fluid align-center d-flex justify-content-center">
-        <div class="card">
-            <div class="card-body">
-                <a href="{% url 'create-task' %}" class="button button1 me-md-4">Task nou</a>
-                <a href="{% url 'homepage' %}" class="button button1 me-md-8">Home</a>
-            </div>
-        </div>
-</div>
-<div class="container-fluid align-center d-flex justify-content-center">
-        <div class="row">
-            <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-10">
                 {% if all_tasks %}
                     {% for task in all_tasks %}
-                    <table class="table table-secondary table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th scope="col">Company name</th>
-                        <th scope="col">Contact name</th>
-                        <th scope="col">Created at</th>
-                         <th scope="col">End date</th>
-                        <th scope="col">Service Status</th>
-                        <th scope="col">Task</th>
-{#                        <th scope="col">Assigned to</th>#}
-{#                        <th scope="col">Department</th>#}
-                        <th scope="col">Agent</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
                         {% if not task.complete %}
-                            <tr>
-                                <td>{{ task.company_name }}</td>
-                                <td>{{ task.contact_name }}</td>
-                                <td>{{ task.created_at|date:"d-m-Y" }}</td>
-                                <td>{{ task.end_date|date:"d-m-Y" }}</td>
-                                <td>{{ task.select_status|title }}</td>
-                                <td>{{ task.task_name }}</td>
-                                <td>{{ task.agent_name }}</td>
-                                <td>
-                                    <a href="{% url 'task-details' task.id %}" class="button button3 me-md-1" type="button">Detalii</a>
-                                </td>
-                            </tr>
+                            <table class="table table-primary table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Company name</th>
+                                        <th scope="col">Contact name</th>
+                                        <th scope="col">Created at</th>
+                                         <th scope="col">End date</th>
+                                        <th scope="col">Service Status</th>
+                                        <th class="text-align-center" scope="col">Task</th>
+                                        <th scope="col">Agent</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ task.company_name }}</td>
+                                        <td>{{ task.contact_name }}</td>
+                                        <td>{{ task.created_at|date:"d-m-Y" }}</td>
+                                        <td>{{ task.end_date|date:"d-m-Y" }}</td>
+                                        <td>{{ task.select_status|title }}</td>
+                                        <td>{{ task.task_name }}</td>
+                                        <td>{{ task.agent_name }}</td>
+                                        <td>
+                                            <a href="{% url 'task-details' task.id %}" class="button button3 me-md-1" type="button">Detalii</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
                             <br><br>
                         {% else %}
-                            <tr>
-                                <td>{{ task.company_name }}</td>
-                                <td>{{ task.contact_name }}</td>
-                                <td>{{ task.created_at|date:"d-m-Y" }}</td>
-                                <td>{{ task.end_date|date:"d-m-Y" }}</td>
-                                <td>{{ task.select_status|title }}</td>
-                                <td>{{ task.task_name }}</td>
-                                <td>{{ task.agent_name }}</td>
-                                <td>Incheiat<a href="{% url 'task-delete' task.id %}" class="button button2">Delete</a></td>
-                            </tr>
+                            <table class="table table-success table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Company name</th>
+                                        <th scope="col">Contact name</th>
+                                        <th scope="col">Created at</th>
+                                         <th scope="col">End date</th>
+                                        <th scope="col">Service Status</th>
+                                        <th scope="col">Task</th>
+                                        <th scope="col">Agent</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ task.company_name }}</td>
+                                        <td>{{ task.contact_name }}</td>
+                                        <td>{{ task.created_at|date:"d-m-Y" }}</td>
+                                        <td>{{ task.end_date|date:"d-m-Y" }}</td>
+                                        <td>{{ task.select_status|title }}</td>
+                                        <td>{{ task.task_name }}</td>
+                                        <td>{{ task.agent_name }}</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button class="button button3 dropdown-toggle" type="button"
+                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Detalii
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="{% url 'task-details' task.id %}">Details</a></li>
+                                                        <li><a class="dropdown-item" href="{% url 'task-delete' task.id %}">Delete</a></li>
+                                                </ul>
+                                            </div></td>
+                                    </tr>
+                                </tbody>
                             <br><br>
                         {% endif %}
                     {% endfor %}
@@ -71,10 +83,17 @@
                     <br><br>
                     <a href="{% url 'create-task' %}" class="btn btn-primary">Task nou</a>
                 {% endif %}
-                </tbody>
-                </table>
+            </table>
+        </div>
+        <div class="col-md-2">
+            <br><br>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{% url 'create-task' %}" class="menu_button button1 me-md-2" type="button">Task nou</a>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{% url 'homepage' %}" class="menu_button button1 me-md-2" type="button">Back</a>
             </div>
         </div>
     </div>
-
+</div>
 {% endblock %}

@@ -6,7 +6,20 @@ from service.models import Company
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Company
-        fields = '__all__'
+        fields = [
+            'company_name',
+            'contact_name',
+            'agent_name',
+            'phone',
+            'email',
+            'task_name',
+            'task_description',
+            'start_date',
+            'end_date',
+            'active',
+            'select_delivery',
+            'select_status'
+        ]
 
         widgets = {
             'company_name': TextInput(attrs={'placeholder': 'Please enter clients name', 'class': 'form-control'}),
@@ -15,11 +28,12 @@ class TaskForm(forms.ModelForm):
             'phone': NumberInput(attrs={'placeholder': 'Please enter contact phone number', 'class': 'form-control'}),
             'email': EmailInput(attrs={'placeholder': 'Please enter clients email',  'class': 'form-control'}),
             'task_name': TextInput(attrs={'placeholder': 'Please enter service problem', 'class': 'form-control'}),
-            'description': Textarea(attrs={'placeholder': 'Please enter detailed service problem', 'class': 'form-control',
+            'task_description': Textarea(attrs={'placeholder': 'Please enter detailed service problem', 'class': 'form-control',
                                            'rows': 5}),
             'start_date': DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'end_date': DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'select_status': Select(attrs={'class': 'form-select'}),
+            'select_delivery': Select(attrs={'class': 'form-select'}),
         }
 
     def clean(self):
@@ -43,7 +57,8 @@ class TaskForm(forms.ModelForm):
 class TaskUpdateForm(forms.ModelForm):
     class Meta:
         model = Company
-        fields = '__all__'
+#        fields = '__all__'
+        fields = ['company_name', 'contact_name', 'agent_name', 'phone', 'email', 'task_description', 'task_asses', 'end_date', 'complete']
 
         widgets = {
             'company_name': TextInput(attrs={'placeholder': 'Please enter clients name', 'class': 'form-control'}),
@@ -51,8 +66,10 @@ class TaskUpdateForm(forms.ModelForm):
             'agent_name': Select(attrs={'class': 'form-select'}),
             'phone': NumberInput(attrs={'placeholder': 'Please enter contact phone number', 'class': 'form-control'}),
             'email': EmailInput(attrs={'placeholder': 'Please enter clients email',  'class': 'form-control'}),
-            'description': Textarea(attrs={'placeholder': 'Please enter service problem', 'class': 'form-control',
-                                           'rows': 5}),
+            'task_description': Textarea(attrs={'placeholder': 'Please enter service problem', 'class': 'form-control',
+                                         'rows': 5}),
+            'task_asses': Textarea(attrs={'placeholder': 'Please enter detailed service solution', 'class': 'form-control',
+                                   'rows': 5}),
             'start_date': DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'end_date': DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'select_status': Select(attrs={'class': 'form-select'}),
