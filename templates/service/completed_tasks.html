@@ -25,7 +25,7 @@
                     </div>
                     <div class="card-footer text-center">
                         <button type="submit" class="btn btn-outline-success">Search</button>
-                        <a href="{% url 'list-of-tasks' %}" class="btn btn-outline-secondary">Reset</a>
+                        <a href="{% url 'completed-tasks' %}" class="btn btn-outline-secondary">Reset</a>
                     </div>
                 </form>
               </div>
@@ -33,17 +33,18 @@
             <br><br><br>
         </div>
         <div class="col-md-8">
-            <h1 class="d-flex justify-content-center">Lista task-uri: {{ current_date_time|date:"d/m/Y" }}</h1>
-            {% if all_tasks %}
+            <h1 class="d-flex justify-content-center">Task-uri finalizate</h1>
+            <br><br>
+                {% if all_tasks %}
                     {% for task in all_tasks %}
-                        {% if not task.complete %}
-                            <table class="table table-primary table-striped">
+                        {% if task.complete %}
+                            <table class="table table-success table-striped">
                                 <thead>
                                     <tr>
                                         <th class="text-center" scope="col">Company name</th>
                                         <th class="text-center" scope="col">Contact name</th>
                                         <th class="text-center" scope="col">Created at</th>
-                                        <th class="text-center" scope="col">End date</th>
+                                         <th class="text-center" scope="col">End date</th>
                                         <th class="text-center" scope="col">Service Status</th>
                                         <th class="text-center" scope="col">Task</th>
                                         <th class="text-center" scope="col">Agent</th>
@@ -64,16 +65,11 @@
                                         </td>
                                     </tr>
                                 </tbody>
+                            </table>
                             <br><br>
                         {% endif %}
-                    {% endfor %}
-                {% else %}
-                    <br><br>
-                    <h3 class="text-center"> Nu avem TASK-uri create</h3>
-                    <br><br>
-                    <a href="{% url 'create-task' %}" class="btn btn-primary">Task nou</a>
+                    {%  endfor %}
                 {% endif %}
-            </table>
         </div>
         <div class="col-md-2">
 
@@ -83,7 +79,7 @@
                 <a href="{% url 'create-task' %}" class="menu_button button1 me-md-2" type="button">Task nou</a>
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="{% url 'completed-tasks' %}" class="menu_button button1 me-md-2" type="button">Task-uri finalizate</a>
+                <a href="{% url 'list-of-tasks' %}" class="menu_button button1 me-md-2" type="button">Lista task-uri</a>
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <a href="{% url 'homepage' %}" class="menu_button button1 me-md-2" type="button">Back</a>

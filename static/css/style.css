@@ -23,3 +23,6 @@
   width: 200px;
   height: 150px;
 }
+.navbar-nav .btn {
+  margin-top: 40px;
+}

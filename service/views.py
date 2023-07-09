@@ -7,6 +7,8 @@ from django.contrib.messages.views import SuccessMessageMixin
 
 from service.forms import TaskForm, TaskUpdateForm
 from service.models import Company
+from agent.models import Agent
+from service.filters import TaskFilters
 
 
 class ServiceTaskCreateView(SuccessMessageMixin, CreateView):
@@ -41,6 +43,13 @@ class ServiceTaskListView(ListView):
         data = super().get_context_data(**kwargs)
         now = datetime.now()
         data['current_date_time'] = now
+        agent = Agent.objects.all()
+        data['get_all_agents'] = agent
+        tasks = Company.objects.filter(active=True)
+        my_filter = TaskFilters(self.request.GET, queryset=tasks)
+        tasks = my_filter.qs
+        data['all_tasks'] = tasks
+        data['form_filters'] = my_filter.form
         return data
 
 
@@ -49,6 +58,29 @@ class ServiceTaskDetailsView(DetailView):
     model = Company
     success_url = reverse_lazy('list-of-tasks')
     permission_required = 'task.view_task'
+
+
+class ServiceTaskCompleteView(ListView):
+    template_name = 'service/completed_tasks.html'
+    model = Company
+    context_object_name = 'all_tasks'
+    permission_required = 'task.view_task_list'
+
+    def get_queryset(self):
+        return Company.objects.filter(active=True)
+
+    def get_context_data(self, **kwargs):
+        data1 = super().get_context_data(**kwargs)
+        now = datetime.now()
+        data1['current_date_time'] = now
+        agent = Agent.objects.all()
+        data1['get_all_tasks'] = agent
+        tasks = Company.objects.filter(active=True)
+        my_filter = TaskFilters(self.request.GET, queryset=tasks)
+        tasks = my_filter.qs
+        data1['all_tasks'] = tasks
+        data1['form_filters'] = my_filter.form
+        return data1
 
 
 class ServiceTaskUpdateView(SuccessMessageMixin, UpdateView):

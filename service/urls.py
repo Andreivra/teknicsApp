@@ -7,4 +7,5 @@ urlpatterns = [
     path('task_details/<int:pk>/', views.ServiceTaskDetailsView.as_view(), name='task-details'),
     path('task_update/<int:pk>/', views.ServiceTaskUpdateView.as_view(), name='task-update'),
     path('task_delete/<int:pk>/', views.ServiceTaskDeleteView.as_view(), name='task-delete'),
+    path('completed_tasks/', views.ServiceTaskCompleteView.as_view(), name='completed-tasks'),
 ]
