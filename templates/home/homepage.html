@@ -3,64 +3,76 @@
 
 {% block title %} Home {% endblock %}
 
+
 {% block content %}
 
 {% if user.is_authenticated %}
-<br><br><br>
-<div class="container-fluid d-flex justify-content-md-center">
-    <br><br>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col-sm-6 mb-3 mb-sm-3">
-            <div class="card d-flex justify-content-center" id="div">
-                <div class="card-body">
-                    <h5 class="card-title">Service </h5>
-                    <p class="card-text">Task-uri pentru servisare produse.</p>
-                     <div class="card-footer text-center">
-                         <a href="{% url 'list-of-tasks' %}" class="button button1 justify-content-center">Lista task-uri</a>
+<br><br>
+    <div class="container-fluid d-flex justify-content-md-center">
+        <br><br>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col-sm-6 mb-3 mb-sm-3">
+                <div class="card d-flex justify-content-center" id="div">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Service </h3>
+                            <a href="{% url 'list-of-tasks' %}">
+                                <img src="/static/images/service.jpg" alt="Logo" width="250" height="200"
+                                            class="d-inline-block align-text-top">
+                            </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-3 mb-sm-3">
+                <div class="card d-flex justify-content-center" id="div">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">  Comenzi </h3>
+                            <a href="{% url 'list-of-tasks' %}">
+                                <img src="/static/images/order.png" alt="Logo" width="250" height="200"
+                                            class="d-inline-block align-text-top">
+                            </a>
+                    </div>
+                </div>
+            </div>
+<!--            <div class="col-sm-6 mb-3 mb-sm-3">-->
+<!--                <div class="card d-flex justify-content-center" id="div">-->
+<!--                    <div class="card-body">-->
+<!--                        <h5 class="card-title text-center">Supply Items</h5>-->
+<!--                        <p class="card-text text-center">With supporting text below as a natural lead-in to additional content.</p>-->
+<!--                        <div class="card-footer text-center">-->
+<!--                             <a href="{% url 'list-of-tasks' %}" class="button button1 justify-content-center">Lista task-uri</a>-->
 
-                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 mb-3 mb-sm-3">
-            <div class="card d-flex justify-content-center" id="div">
-                <div class="card-body">
-                    <h5 class="card-title">Lista produse</h5>
-                    <p class="card-text">Lista produse pentru aprovizionare.</p>
-                    <a href="#" class="button button1">Lista produse</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 mb-3 mb-sm-3">
-            <div class="card d-flex justify-content-center" id="div">
-                <div class="card-body">
-                    <h5 class="card-title">Supply Items</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="button button1">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 mb-3 mb-sm-3">
-            <div class="card d-flex justify-content-center" id="div">
-                <div class="card-body">
-                    <h5 class="card-title">Supply Items</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="button button1">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 mb-3 mb-sm-3">
-            <div class="card d-flex justify-content-center" id="div">
-                <div class="card-body">
-                    <h5 class="card-title">Supply Items</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="button button1">Go somewhere</a>
-                </div>
-            </div>
+<!--                         </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-sm-6 mb-3 mb-sm-3">-->
+<!--                <div class="card d-flex justify-content-center" id="div">-->
+<!--                    <div class="card-body">-->
+<!--                        <h5 class="card-title">Supply Items</h5>-->
+<!--                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+<!--                        <a href="#" class="button button1">Go somewhere</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-sm-6 mb-3 mb-sm-3">-->
+<!--                <div class="card d-flex justify-content-center" id="div">-->
+<!--                    <div class="card-body">-->
+<!--                        <h5 class="card-title">Supply Items</h5>-->
+<!--                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+<!--                        <a href="#" class="button button1">Go somewhere</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
-</div>
+
 {% else %}
-    <h1>Log in please</h1>
+<body class="body.login">
+    <div class="container-fluid d-flex justify-content-md-center">
+        <a href="{% url 'login' %}">
+            <img src="/static/images/loginimage3.jpg" height="850" width="1800">
+        </a>
+    </div>
+</body>
 {% endif %}
 {% endblock %}

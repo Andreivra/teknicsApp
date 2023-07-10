@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar nav navbar-expand-lg bg-body-tertiary" style="background: #e3f2fd;">
     <div class="container-fluid gap-4">
         <img src="/static/images/teknics_logo3.png" alt="Logo" width="160" height="45"
              class="d-inline-block align-text-top">
@@ -7,7 +7,7 @@
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse justify-end" id="navbarSupportedContent">
             {% if user.is_authenticated %}
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -28,7 +28,7 @@
                     </li>
                 </ul>
                 <div class="dropdown">
-                    <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    <button class="button button4 dropdown-toggle" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                         My profile, {{ user.username }}
                     </button>
@@ -37,12 +37,17 @@
                         <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
                     </ul>
                 </div>
-                </div>
-                </div>
             {% else %}
-                <div class="d-grid gap-4 d-md-flex justify-content-end">
-                    <a href="{% url 'login' %}" class="btn btn-outline-success">Login</a>
-                    <a href="{% url 'create-user' %}" class="btn btn-outline-success">Sign up</a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+
+                    </li>
+                </ul>
+                <div>
+                    <a href="{% url 'login' %}" class="button button4">Login</a>
+                    <a href="{% url 'create-user' %}" class="button button4">Sign up</a>
                 </div>
             {% endif %}
+        </div>
+    </div>
 </nav>
