@@ -15,10 +15,11 @@ class AgentForm(forms.ModelForm):
 
 
 class AgentUpdateForm(forms.ModelForm):
-    model = Agent
-    fields = '__all__'
-    widgets = {
-        'first_name': TextInput(attrs={'placeholder': 'Please enter your first name', 'class': 'form-control'}),
-        'last_name': TextInput(attrs={'placeholder': 'Please enter your last name', 'class': 'form-control'}),
-        'email': EmailInput(attrs={'placeholder': 'Please enter your email', 'class': 'form-control'}),
-    }
+    class Meta:
+        model = Agent
+        fields = '__all__'
+        widgets = {
+            'first_name': TextInput(attrs={'placeholder': 'Please enter your first name', 'class': 'form-control'}),
+            'last_name': TextInput(attrs={'placeholder': 'Please enter your last name', 'class': 'form-control'}),
+            'email': EmailInput(attrs={'placeholder': 'Please enter your email', 'class': 'form-control'}),
+        }

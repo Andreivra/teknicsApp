@@ -1,17 +1,17 @@
-from django.shortcuts import render
+
 from datetime import datetime
 
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from service.forms import TaskForm, TaskUpdateForm
 from service.models import Company
 from agent.models import Agent
 from service.filters import TaskFilters
 
 
-class ServiceTaskCreateView(SuccessMessageMixin, CreateView):
+class ServiceTaskCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = 'service/create_service_task.html'
     model = Company
     form_class = TaskForm
@@ -30,7 +30,7 @@ class ServiceTaskCreateView(SuccessMessageMixin, CreateView):
         return self.success_message.format(company_name=self.object.company_name)
 
 
-class ServiceTaskListView(ListView):
+class ServiceTaskListView(LoginRequiredMixin, ListView):
     template_name = 'service/list_of_tasks.html'
     model = Company
     context_object_name = 'all_tasks'
@@ -53,7 +53,7 @@ class ServiceTaskListView(ListView):
         return data
 
 
-class ServiceTaskDetailsView(DetailView):
+class ServiceTaskDetailsView(LoginRequiredMixin, DetailView):
     template_name = 'service/task_details.html'
     model = Company
     success_url = reverse_lazy('list-of-tasks')
@@ -83,7 +83,7 @@ class ServiceTaskCompleteView(ListView):
         return data1
 
 
-class ServiceTaskUpdateView(SuccessMessageMixin, UpdateView):
+class ServiceTaskUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = 'service/update_task.html'
     model = Company
     form_class = TaskUpdateForm
@@ -99,7 +99,7 @@ class ServiceTaskUpdateView(SuccessMessageMixin, UpdateView):
         )
 
 
-class ServiceTaskDeleteView(SuccessMessageMixin, DeleteView):
+class ServiceTaskDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     template_name = 'service/delete_task.html'
     model = Company
     success_url = reverse_lazy('list-of-tasks')

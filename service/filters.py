@@ -5,7 +5,7 @@ from service.models import Company
 
 
 class TaskFilters(django_filters.FilterSet):
-    get_tasks = [(company.agent_name, company.agent_name) for company in Company.objects.filter(active=True)]
+    get_tasks = [(company.agent_name_id, company.agent_name) for company in Company.objects.filter(active=True)]
 
     company_name = django_filters.CharFilter(lookup_expr='icontains', label='Company name')
     contact_name = django_filters.CharFilter(lookup_expr='icontains', label='Contact name')

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Create a new trainer... {% endblock %}
+{% block title %} Update {{ agent }} {% endblock %}
 
 {% block content %}
 <div class="container-fluid">
@@ -9,7 +9,7 @@
                 <br><br>
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="text-center">Create a new Agent</h3>
+                        <h3 class="text-center">Update {{ agent }}</h3>
                     </div>
                     <form method="post" enctype="multipart/form-data">
                         {% csrf_token %} {# CSRF TOKER -> CROSS SITE REQUEST FORGERY #}
@@ -18,7 +18,7 @@
                         </div>
                         <div class="card-footer text-center">
                             <button type="submit" class="btn btn-outline-success">Save</button>
-                            <a href="{% url 'list-of-agents' %}" class="btn btn-primary">Back</a>
+                            <a href="{% url 'agent-details' agent.id %}" class="btn btn-primary">Back</a>
                         </div>
                     </form>
                 </div>

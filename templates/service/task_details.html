@@ -17,26 +17,26 @@
                 <thead>
                 <h5>Detalii companie</h5>
                     <tr>
-                        <th scope="col">Persoana Contact</th>
-                        <th scope="col">Numar contact</th>
-                        <th scope="col">E-mail</th>
-                        <th scope="col">Data creare</th>
-                        <th scope="col">Data finalizare</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Responsabil</th>
-                        <th scope="col">Predat prin</th>
+                        <th class="text-center" scope="col">Persoana Contact</th>
+                        <th class="text-center" scope="col">Numar contact</th>
+                        <th class="text-center" scope="col">E-mail</th>
+                        <th class="text-center" scope="col">Data creare</th>
+                        <th class="text-center" scope="col">Data finalizare</th>
+                        <th class="text-center" scope="col">Status</th>
+                        <th class="text-center" scope="col">Responsabil</th>
+                        <th class="text-center" scope="col">Predat prin</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ company.contact_name }}</td>
-                        <td>{{ company.phone }}</td>
-                        <td>{{ company.email }}</td>
-                        <td>{{ company.created_at|date:"d-m-Y" }}</td>
-                        <td>{{ company.end_date|date:"d-m-Y" }}</td>
-                        <td>{{ company.select_status|title }}</td>
-                        <td>{{ company.agent_name }}</td>
-                        <td>{{ company.select_delivery }}</td>
+                        <td class="text-center">{{ company.contact_name }}</td>
+                        <td class="text-center">{{ company.phone }}</td>
+                        <td class="text-center">{{ company.email }}</td>
+                        <td class="text-center">{{ company.created_at|date:"d-m-Y" }}</td>
+                        <td class="text-center">{{ company.end_date|date:"d-m-Y" }}</td>
+                        <td class="text-center">{{ company.select_status|title }}</td>
+                        <td class="text-center">{{ company.agent_name }}</td>
+                        <td class="text-center">{{ company.select_delivery }}</td>
                     </tr>
                     <br><br>
                 </tbody>
@@ -52,16 +52,18 @@
             </div>
             <br><br>
             <br>
+            {% if company.task_asses %}
             <h5 class="d-flex justify-content-right">Constatare</h5>
             <div class="card">
                 <div class="card-body">
                     {{ company.task_asses }}
                  </div>
             </div>
+            {% endif %}
             <br><br>
         </div>
         <div class="col-md-2">
-        <br><br><Br><br>
+        <br><br><Br>
             {% if not company.complete %}
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                     <a href="{% url 'list-of-tasks' %}" class="menu_button button1">Back</a>

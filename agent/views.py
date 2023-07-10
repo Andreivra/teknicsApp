@@ -1,14 +1,12 @@
-# from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
-# from trainer.filters import TrainerFilters
 from agent.models import Agent
 from agent.forms import AgentForm, AgentUpdateForm
-from datetime import datetime
 
 
-class AgentCreateView(CreateView):
+class AgentCreateView(LoginRequiredMixin, CreateView):
     template_name = 'agent/create_agent.html'
     model = Agent
     form_class = AgentForm
@@ -28,14 +26,48 @@ class AgentCreateView(CreateView):
         return self.success_message.format(first_name=self.object.first_name, last_name=self.object.last_name)
 
 
-class AgentListView(ListView):
+class AgentListView(LoginRequiredMixin, ListView):
     template_name = 'agent/list_of_agents.html'
     model = Agent
     context_object_name = 'all_agents'
     permission_required = 'agent.view_list_of_agents'
 
-    def get_context_data(self, **kwargs):
-        data = super().get_context_data(**kwargs)
-        now = datetime.now()
-        data['current_date_time'] = now
-        return data
+
+class AgentUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+    template_name = 'agent/update_agent.html'
+    model = Agent
+    form_class = AgentUpdateForm
+    success_url = reverse_lazy('list-of-agents')
+    success_message = "Agentul %(first_name_field)s  %(last_name_field)s a fost actualizat cu success"
+    permission_required = 'agent.change_agent'
+
+    def get_success_message(self, cleaned_data):
+        return self.success_message % dict(
+            cleaned_data,
+            first_name_field=self.object.first_name,
+            last_name_field=self.object.last_name,
+
+        )
+
+
+class AgentDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
+    template_name = 'agent/delete_agent.html'
+    model = Agent
+    success_url = reverse_lazy('list-of-agents')
+    success_message = "Agentul %(first_name_field)s  %(last_name_field)s a fost sters cu success"
+    permission_required = 'agent.delete_agent'
+
+    def get_success_message(self, cleaned_data):
+        return self.success_message % dict(
+            cleaned_data,
+            first_name_field=self.object.first_name,
+            last_name_field=self.object.last_name,
+
+        )
+
+
+class AgentDetailsView(LoginRequiredMixin, DetailView):
+    template_name = 'agent/agent_details.html'
+    model = Agent
+    success_url = reverse_lazy('list-of-agents')
+    permission_required = 'agent.view_agent'

@@ -1,54 +1,56 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block title %} Teknics APP {% endblock %}
 
 {% block content %}
- <h1 class="d-flex justify-content-center">Lista agenti</h1>
-<div class="container-fluid align-center d-flex justify-content-center">
-        <div class="card">
-            <div class="card-body">
-                <a href="{% url 'create-task' %}" class="button button1 me-md-4">Task nou</a>
-                <a href="{% url 'homepage' %}" class="button button1 me-md-8">Home</a>
-            </div>
-        </div>
-</div>
-<div class="container-fluid align-center d-flex justify-content-center">
-        <div class="row">
-            <div class="col-md-12">
-                {% if all_agents %}
-                    <table class="table table-secondary table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th scope="col">Nume Agent</th>
-                        <th scope="col">E-mail</th>
-                        <th scope="col">Created at</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                    </thead>
-                      {% for agent in all_agents %}
-                    <tbody>
 
-                        <tr>
-                            <td>{{ agent.first_name }} {{ agent.last_name }}</td>
-                            <td>{{ agent.email }}</td>
-                            <td>{{ agent.created_at|date:"d-m-Y" }}</td>
-                            <td>
-                                <a href="#" class="button button3 me-md-1" type="button">Detalii</a>
-                            </td>
-                        </tr>
-                        <br><br>
-                    {% endfor %}
+{% if user.is_authenticated %}
+<div class="container-fluid align-center d-flex justify-content-center">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="d-flex justify-content-center">Lista task-uri: {{ current_date_time|date:"d/m/Y" }}</h1>
+                {% if all_agents %}
+                    <table class="table table-primary table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-center" scope="col">Nume Agent</th>
+                                <th class="text-center" scope="col">Prenume Agent</th>
+                                <th class="text-center" scope="col">E-mail</th>
+                                <th class="text-center" scope="col">Created at</th>
+                                <th class="text-center" scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        {% for agent in all_agents %}
+                        <tbody>
+                            <tr>
+                                <td class="text-center">{{ agent.first_name }}</td>
+                                <td class="text-center">{{ agent.last_name }}</td>
+                                <td class="text-center">{{ agent.email }}</td>
+                                <td class="text-center">{{ agent.created_at|date:"d-m-Y" }}</td>
+                                <td class="text-center">
+                                    <a href="{% url 'agent-details' agent.id %}" class="button button3 me-md-1" type="button">Detalii</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                        {% endfor %}
+                    </table>
                 {% else %}
-                    <br><br>
-                    <h3 class="text-center"> Nu avem agenti creati</h3>
-                    <br><br>
-                    <a href="{% url 'create-agent' %}" class="btn btn-primary">Task nou</a>
+                        <h3 class="text-center"> Nu avem agenti creati</h3>
                 {% endif %}
-                </tbody>
-                </table>
+        </div>
+        <div class="col-md-2">
+            <h1 class="d-flex justify-content-center">Meniu</h1>
+            <br><br>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{% url 'create-agent' %}" class="menu_button button1 me-md-2" type="button">Agent nou</a>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{% url 'homepage' %}" class="menu_button button1 me-md-2" type="button">Back</a>
             </div>
         </div>
     </div>
+</div>
 
+{% endif %}
 {% endblock %}

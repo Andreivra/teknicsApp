@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 
-{% block title %} Create a new trainer... {% endblock %}
+{% block title %} Delete Trainer {{ agent }} {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <br><br>
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="text-center">Create a new Agent</h3>
+                        <h3 class="text-center">Delete {{ agent }}</h3>
                     </div>
-                    <form method="post" enctype="multipart/form-data">
-                        {% csrf_token %} {# CSRF TOKER -> CROSS SITE REQUEST FORGERY #}
+                    <form method="post">
+                        {% csrf_token %}
                         <div class="card-body">
-                            {{ form.as_p }}
+                            <h5 class="text-center">Are you shore you want to delete the record?</h5>
                         </div>
                         <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-outline-success">Save</button>
+                            <button type="submit" class="btn btn-danger">YES</button>
                             <a href="{% url 'list-of-agents' %}" class="btn btn-primary">Back</a>
                         </div>
                     </form>
@@ -25,4 +25,5 @@
             </div>
         </div>
     </div>
+
 {% endblock %}
