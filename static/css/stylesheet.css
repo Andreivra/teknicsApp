@@ -3,13 +3,13 @@
   border: 1px solid brown;
   padding: 15px;
   margin: 5px;
-}
+  }
 #div1 {
   width: 200px;
 
   padding: 15px;
   margin: 5px;
-}
+  }
 .button {
   border: none;
   border-radius: 20px;
@@ -21,7 +21,7 @@
   font-size: 12px;
   margin: 4px 2px;
   cursor: pointer;
-}
+  }
 .menu_button{
     width: 250px;
   border: none;
@@ -34,7 +34,7 @@
   font-size: 12px;
   margin: 4px 2px;
   cursor: pointer;
-}
+  }
 .filter_button{
     width: 350px;
   border: none;
@@ -47,15 +47,14 @@
   font-size: 12px;
   margin: 4px 2px;
   cursor: pointer;
-}
+  }
 .button1 {background-color: #008CBA;} /* Blue */
 .button2 {background-color: #f44336;} /* Red */
 .button3 {background-color: #e7e7e7; color: black;} /* Gray */
-
-#rcorners2 {
-  border-radius: 25px;
-  border: 2px solid #73AD21;
-  padding: 20px;
-  width: 200px;
-  height: 150px;
-}
+.button4 {background-color: #c27e11;}
+body.login {
+  background-image: url('/static/images/loginimage3.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  }
