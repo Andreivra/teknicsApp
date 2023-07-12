@@ -25,7 +25,7 @@
 .menu_button{
     width: 250px;
   border: none;
-  border-radius: 20px;
+  border-radius: 5px;
   color: white;
   padding: 10px 24px;
   text-align: center;
@@ -52,9 +52,6 @@
 .button2 {background-color: #f44336;} /* Red */
 .button3 {background-color: #e7e7e7; color: black;} /* Gray */
 .button4 {background-color: #c27e11;}
-body.login {
-  background-image: url('/static/images/loginimage3.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  }
+
+
+

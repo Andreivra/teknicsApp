@@ -5,40 +5,6 @@
 
 
 {% block content %}
-{#<div class="d-flow flex-column min-vh-100 justify-content-center">#}
-{#    <div class="container">#}
-{#        <div class="row">#}
-{#            <div class="col-sm-12 col-md-10 mx-auto bg-white rounded shadow">#}
-{#                <div class="row">#}
-{#                    <div class="col-md-6">#}
-{#                        <div class="m-5 text-center"><h1>Welcome!</h1></div>#}
-{#                            <form method="post" class="m-5">#}
-{#                                {% csrf_token %}#}
-{#                                <div class="mb-3">#}
-{#                                    {{ form.as_p }}#}
-{#                                </div>#}
-{#                                <div class="row mb-3">#}
-{#                                    <div class="col-6">#}
-{#                                        <div class="text-end">#}
-{#                                            <label><a href="{% url 'password_reset' %}">Forgot password?</a></label>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <div class="input-field">#}
-{#                                    <button type="submit" class="submit form-control btn button4 mt-3">Login</button>#}
-{#                                </div>#}
-{#                            </form>#}
-{#                        </div>#}
-{#                        <div class="col-md-6">#}
-{#                            <div>#}
-{#                                <img src="/static/images/login.svg" alt="login" class="img-fluid p-5"/>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#</div>#}
 
 <div class="d-flow flex-column min-vh-80 justify-content-center">
     <div class="container">
@@ -46,29 +12,31 @@
             <div class="col-sm-12 col-md-10 mx-auto bg-white rounded shadow">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="m-5 text-center"><h1>Welcome!</h1></div>
-                            <form method="post" class="m-5">
-                                {% csrf_token %}
-                                <div class="mb-3">
-                                    {{ form.as_p }}
-                                </div>
-                                <div class="input-field">
-                                    <button type="submit" class="submit form-control btn button4 mt-3"> Login</button>
-                                </div>
-                                <br>
-                                <div class="text-end">
-                                    <label><a href="{% url 'password_reset' %}">Forgot password?</a></label>
-                                </div>
-                            </form>
+                        <div class="m-5 text-center">
+                            <h1>Welcome!</h1>
                         </div>
-                        <div class="col-md-6">
-                            <div>
-                                <img src="/static/images/login.svg" alt="login" class="img-fluid p-5"/>
+                        <form method="post" class="m-5">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                {{ form.as_p }}
                             </div>
+                            <div class="input-field">
+                                <button type="submit" class="submit form-control btn button4 mt-3"> Login</button>
+                            </div>
+                            <br>
+                            <div class="text-end">
+                                <label><a href="{% url 'password_reset' %}">Forgot password?</a></label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <img src="/static/images/login.svg" alt="login" class="img-fluid p-5"/>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

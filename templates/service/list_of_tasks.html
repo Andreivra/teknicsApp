@@ -3,90 +3,128 @@
 {% block title %} Teknics APP {% endblock %}
 
 {% block content %}
-
 <div class="container-fluid align-center d-flex justify-content-center">
     <div class="row">
         <div class="col-md-2">
-             <h1 class="d-flex justify-content-center">Filters
-             </h1>
-            <br><br>
+            <div class="d-flow min-vh-80 justify-content-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 mx-auto bg-white rounded shadow">
+                            <div class="col-md-12">
+                                <div class="m-8 mb-5 mt-5 text-center">
+                                    <div class="card d-flex justify-content-center" style="border: 1px solid black; background-color: #bcd3f7;">
+                                        <div class="card-body">
+                                            <h3 class="card-title text-center">Filters </h3>
+                                        </div>
+                                    </div>
 
-                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                      <a class="menu_button button1" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Filters
-                      </a>
+                                     <br><br>
+                                        <form method="get">
+                                            <div class="mb-5">
+                                                {{ form_filters.as_p }}
+                                            </div>
+                                            <div class="input-field">
+                                                <button type="submit" class="btn button1 mt-3">Search</button>
+                                                <a href="{% url 'list-of-tasks' %}" class="btn button1 mt-3">Reset</a>
+                                            </div>
+                                        </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-            <div class="collapse" id="collapseExample">
-              <div class="card card-body">
-                <form method="get">
-                    <div class="card-body">
-                        {{ form_filters.as_p }}
-                    </div>
-                    <div class="card-footer text-center">
-                        <button type="submit" class="btn btn-outline-success">Search</button>
-                        <a href="{% url 'list-of-tasks' %}" class="btn btn-outline-secondary">Reset</a>
-                    </div>
-                </form>
-              </div>
             </div>
-            <br><br><br>
         </div>
         <div class="col-md-8">
-            <h1 class="d-flex justify-content-center">Lista task-uri: {{ current_date_time|date:"d/m/Y" }}</h1>
-            {% if all_tasks %}
-                    {% for task in all_tasks %}
-                        {% if not task.complete %}
-                            <table class="table table-primary table-striped">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center" scope="col">Company name</th>
-                                        <th class="text-center" scope="col">Contact name</th>
-                                        <th class="text-center" scope="col">Created at</th>
-                                        <th class="text-center" scope="col">End date</th>
-                                        <th class="text-center" scope="col">Service Status</th>
-                                        <th class="text-center" scope="col">Task</th>
-                                        <th class="text-center" scope="col">Agent</th>
-                                        <th class="text-center" scope="col">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center">{{ task.company_name }}</td>
-                                        <td class="text-center">{{ task.contact_name }}</td>
-                                        <td class="text-center">{{ task.created_at|date:"d-m-Y" }}</td>
-                                        <td class="text-center">{{ task.end_date|date:"d-m-Y" }}</td>
-                                        <td class="text-center">{{ task.select_status|title }}</td>
-                                        <td class="text-center">{{ task.task_name }}</td>
-                                        <td class="text-center">{{ task.agent_name }}</td>
-                                        <td class="text-center">
-                                            <a href="{% url 'task-details' task.id %}" class="button button3 me-md-1" type="button">Detalii</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            <br><br>
-                        {% endif %}
-                    {% endfor %}
-                {% else %}
-                    <br><br>
-                    <h3 class="text-center"> Nu avem TASK-uri create</h3>
-                    <br><br>
-                    <a href="{% url 'create-task' %}" class="btn btn-primary">Task nou</a>
-                {% endif %}
-            </table>
+            <div class="d-flow flex-column min-vh-80 justify-content-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 mx-auto bg-white rounded shadow">
+                            <div class="row-md-12 justify-content-center">
+                                <div class="m-5 mb-5 mt-5 text-center">
+                                    <div class="card d-flex justify-content-center" style="border: 1px solid black; background-color: #bcd3f7;">
+                                        <div class="card-body">
+                                            <h3 class="card-title text-center">Lista task-uri: {{ current_date_time|date:"d/m/Y" }}</h3>
+                                        </div>
+                                    </div>
+                                    <br><br><hr>
+                                    {% if all_tasks %}
+                                            {% for task in all_tasks %}
+                                                {% if not task.complete %}
+                                                    <br>
+                                                    <table class="table table-primary table-striped" style="border: 1px solid black;">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="text-center" scope="col">Company name</th>
+                                                                <th class="text-center" scope="col">Contact name</th>
+                                                                <th class="text-center" scope="col">Created at</th>
+                                                                <th class="text-center" scope="col">End date</th>
+                                                                <th class="text-center" scope="col">Service Status</th>
+                                                                <th class="text-center" scope="col">Task</th>
+                                                                <th class="text-center" scope="col">Agent</th>
+                                                                <th class="text-center" scope="col">Actions</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="text-center">{{ task.company_name }}</td>
+                                                                <td class="text-center">{{ task.contact_name }}</td>
+                                                                <td class="text-center">{{ task.created_at|date:"d-m-Y" }}</td>
+                                                                <td class="text-center">{{ task.end_date|date:"d-m-Y" }}</td>
+                                                                <td class="text-center">{{ task.select_status|title }}</td>
+                                                                <td class="text-center">{{ task.task_name }}</td>
+                                                                <td class="text-center">{{ task.agent_name }}</td>
+                                                                <td class="text-center">
+                                                                    <a href="{% url 'task-details' task.id %}" class="button button3 me-md-1" type="button">Detalii</a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <br><br>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% else %}
+                                            <br><br>
+                                            <h3 class="text-center"> Nu avem TASK-uri create</h3>
+                                            <br><br>
+                                            <a href="{% url 'create-task' %}" class="btn btn-primary">Task nou</a>
+                                        {% endif %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-md-2">
-
-            <h1 class="d-flex justify-content-center">Meniu</h1>
-            <br><br>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="{% url 'create-task' %}" class="menu_button button1 me-md-2" type="button">Task nou</a>
-            </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="{% url 'completed-tasks' %}" class="menu_button button1 me-md-2" type="button">Task-uri finalizate</a>
-            </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="{% url 'homepage' %}" class="menu_button button1 me-md-2" type="button">Back</a>
+            <div class="d-flow flex-column min-vh-80 justify-content-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 mx-auto bg-white rounded shadow">
+                            <div class="col-md-12">
+                                <div class="m-8 mb-5 mt-5 text-center">
+                                    <div class="card d-flex justify-content-center" style="border: 1px solid black; background-color: #bcd3f7;">
+                                        <div class="card-body">
+                                            <h3 class="card-title text-center">Meniu</h3>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <a href="{% url 'create-task' %}" class="menu_button button1 me-md-2" type="button">Task nou</a>
+                                    </div>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <a href="{% url 'completed-tasks' %}" class="menu_button button1 me-md-2" type="button">Task-uri finalizate</a>
+                                    </div>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <a href="{% url 'homepage' %}" class="menu_button button1 me-md-2" type="button">Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

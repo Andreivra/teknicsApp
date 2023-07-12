@@ -6,8 +6,8 @@ class AuthenticationNewForm(AuthenticationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Please enter your username'})
-        self.fields['password'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Please enter your password'})
+        self.fields['username'].widget.attrs.update({'class': 'form-control', 'style': 'border: 1px solid black;', 'placeholder': 'Please enter your username'})
+        self.fields['password'].widget.attrs.update({'class': 'form-control', 'style': 'border: 1px solid black;', 'placeholder': 'Please enter your password'})
 
 
 class UserForm(UserCreationForm):
@@ -22,23 +22,23 @@ class UserForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].widget.attrs.update(
-            {'class': 'form-control', 'placeholder': 'Please enter your usernamename'})
+            {'class': 'form-control', 'style': 'border: 1px solid black;', 'placeholder': 'Please enter your usernamename'})
         self.fields['first_name'].widget.attrs.update(
-            {'class': 'form-control', 'placeholder': 'Please enter your first name'})
+            {'class': 'form-control', 'style': 'border: 1px solid black;', 'placeholder': 'Please enter your first name'})
         self.fields['last_name'].widget.attrs.update(
-            {'class': 'form-control', 'placeholder': 'Please enter your last name'})
+            {'class': 'form-control', 'style': 'border: 1px solid black;', 'placeholder': 'Please enter your last name'})
         self.fields['email'].widget.attrs.update(
-            {'class': 'form-control', 'placeholder': 'Please enter your e-mail address'})
+            {'class': 'form-control', 'style': 'border: 1px solid black;', 'placeholder': 'Please enter your e-mail address'})
         self.fields['password1'].widget.attrs.update(
-            {'class': 'form-control', 'placeholder': 'Please enter your password'})
+            {'class': 'form-control', 'style': 'border: 1px solid black;', 'placeholder': 'Please enter your password'})
         self.fields['password2'].widget.attrs.update(
-            {'class': 'form-control', 'placeholder': 'Please enter your password confirmation'})
+            {'class': 'form-control', 'style': 'border: 1px solid black;', 'placeholder': 'Please enter your password confirmation'})
 
 
 class PasswordChangeNewForm(PasswordChangeForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['old_password'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Please enter your old password'})
-        self.fields['new_password1'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Please enter your new password'})
-        self.fields['new_password2'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Please confirm your new password'})
+        self.fields['old_password'].widget.attrs.update({'class': 'form-control', 'style': 'border: 1px solid black;', 'placeholder': 'Please enter your old password'})
+        self.fields['new_password1'].widget.attrs.update({'class': 'form-control', 'style': 'border: 1px solid black;', 'placeholder': 'Please enter your new password'})
+        self.fields['new_password2'].widget.attrs.update({'class': 'form-control', 'style': 'border: 1px solid black;', 'placeholder': 'Please confirm your new password'})
