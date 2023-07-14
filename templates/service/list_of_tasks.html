@@ -3,7 +3,7 @@
 {% block title %} Teknics APP {% endblock %}
 
 {% block content %}
-<div class="container-fluid align-center d-flex justify-content-center">
+<div class="container-fluid align-center d-flow justify-content-center">
     <div class="row">
         <div class="col-md-2">
             <div class="d-flow min-vh-80 justify-content-center">
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div class="d-flow flex-column min-vh-80 justify-content-center">
+            <div class="d-flow flow-column min-vh-80 justify-content-center">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 mx-auto bg-white rounded shadow">
@@ -53,7 +53,7 @@
                                             {% for task in all_tasks %}
                                                 {% if not task.complete %}
                                                     <br>
-                                                    <table class="table table-primary table-striped" style="border: 1px solid black;">
+                                                    <table class=" d-flow table table-primary table-striped min-vh-80" style="border: 1px solid black;">
                                                         <thead>
                                                             <tr>
                                                                 <th class="text-center" scope="col">Company name</th>
