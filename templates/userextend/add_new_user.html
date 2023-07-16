@@ -3,26 +3,34 @@
 {% block title %} Create a new USER {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
+<div class="d-flow flex-column min-vh-80 justify-content-center">
+    <div class="container">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <br><br><br>
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="text-center">SignUp</h3>
+            <div class="col-sm-12 col-md-10 mx-auto rounded shadow">
+                <div class="row bg-white">
+                    <div class="col-md-6">
+                        <div class="m-5 text-center">
+                            <h1>Welcome!</h1>
+                        </div>
+                        <form method="post" class="m-5">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                {{ form.as_p }}
+                            </div>
+                            <div class="input-field" style="align-items: center">
+                                 <button type="submit" class="button button4 mt-3" style="background-color: #91ccd2; color: black;">SignUp</button>
+                            <a href="{% url 'homepage' %}" class="button button4 mt-3" style="background-color: #91ccd2; color: #070606;">Back</a>
+                            </div>
+                        </form>
                     </div>
-                    <form method="post">
-                        {% csrf_token %} {# CSRF TOKER -> CROSS SITE REQUEST FORGERY #}
-                        <div class="card-body">
-                            {{ form.as_p }}
+                    <div class="col-md-6">
+                        <div>
+                            <img src="/static/images/login.svg" alt="login" class="img-fluid p-5"/>
                         </div>
-                        <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-outline-success">SignUp</button>
-                            <a href="{% url 'homepage' %}" class="btn btn-primary">Back</a>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

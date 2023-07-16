@@ -3,7 +3,7 @@
 {% block title %} Teknics APP {% endblock %}
 
 {% block content %}
-<div class="container-fluid align-center d-flow justify-content-center">
+<div class="container-fluid align-center d-flex justify-content-center">
     <div class="row">
         <div class="col-md-2">
             <div class="d-flow min-vh-80 justify-content-center">
@@ -12,7 +12,7 @@
                         <div class="col-sm-12 col-md-12 mx-auto bg-white rounded shadow">
                             <div class="col-md-12">
                                 <div class="m-8 mb-5 mt-5 text-center">
-                                    <div class="card d-flex justify-content-center" style="border: 1px solid black; background-color: #bcd3f7;">
+                                    <div class="d-flex justify-content-center" style="border: 1px solid black; border-radius: 40px; background-color: #bcd3f7;">
                                         <div class="card-body">
                                             <h3 class="card-title text-center">Filters </h3>
                                         </div>
@@ -24,8 +24,8 @@
                                                 {{ form_filters.as_p }}
                                             </div>
                                             <div class="input-field">
-                                                <button type="submit" class="btn button1 mt-3">Search</button>
-                                                <a href="{% url 'list-of-tasks' %}" class="btn button1 mt-3">Reset</a>
+                                                <button type="submit" class="filter_button button1 mt-3">Search</button>
+                                                <a href="{% url 'list-of-tasks' %}" class="filter_button button1 mt-3">Reset</a>
                                             </div>
                                         </form>
                                 </div>
@@ -43,7 +43,7 @@
                         <div class="col-sm-12 col-md-12 mx-auto bg-white rounded shadow">
                             <div class="row-md-12 justify-content-center">
                                 <div class="m-5 mb-5 mt-5 text-center">
-                                    <div class="card d-flex justify-content-center" style="border: 1px solid black; background-color: #bcd3f7;">
+                                    <div class="d-flex justify-content-center" style="border: 1px solid black; border-radius: 40px; background-color: #bcd3f7;">
                                         <div class="card-body">
                                             <h3 class="card-title text-center">Lista task-uri: {{ current_date_time|date:"d/m/Y" }}</h3>
                                         </div>
@@ -53,7 +53,7 @@
                                             {% for task in all_tasks %}
                                                 {% if not task.complete %}
                                                     <br>
-                                                    <table class=" d-flow table table-primary table-striped min-vh-80" style="border: 1px solid black;">
+                                                    <table class=" d-flow table table-primary table-striped min-vh-80" style="border: 1px solid black; border-radius: 30px;">
                                                         <thead>
                                                             <tr>
                                                                 <th class="text-center" scope="col">Company name</th>
@@ -105,20 +105,20 @@
                         <div class="col-sm-12 col-md-12 mx-auto bg-white rounded shadow">
                             <div class="col-md-12">
                                 <div class="m-8 mb-5 mt-5 text-center">
-                                    <div class="card d-flex justify-content-center" style="border: 1px solid black; background-color: #bcd3f7;">
+                                    <div class="d-flex justify-content-center">
                                         <div class="card-body">
-                                            <h3 class="card-title text-center">Meniu</h3>
+                                            <h3 class="card-title text-center">Meniu</h3><hr>
                                         </div>
                                     </div>
                                     <br><br>
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <a href="{% url 'create-task' %}" class="menu_button button1 me-md-2" type="button">Task nou</a>
+                                        <a href="{% url 'create-task' %}" class="menu_button button1 me-md-2" type="button" style="border-radius: 40px;">Task nou</a>
                                     </div>
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <a href="{% url 'completed-tasks' %}" class="menu_button button1 me-md-2" type="button">Task-uri finalizate</a>
+                                        <a href="{% url 'completed-tasks' %}" class="menu_button button1 me-md-2" type="button" style="border-radius: 40px;">Task-uri finalizate</a>
                                     </div>
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <a href="{% url 'homepage' %}" class="menu_button button1 me-md-2" type="button">Back</a>
+                                        <a href="{% url 'homepage' %}" class="menu_button button1 me-md-2" type="button" style="border-radius: 40px;">Back</a>
                                     </div>
                                 </div>
                             </div>

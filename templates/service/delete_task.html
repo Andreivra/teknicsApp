@@ -3,27 +3,29 @@
 {% block title %} Delete task for {{ task }} {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
+<div class="d-flow flex-column min-vh-80 justify-content-center">
+    <div class="container">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <br><br>
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="text-center">Delete {{ task }}</h3>
-                    </div>
-                    <form method="post">
+            <div class="col-sm-12 col-md-12 mx-auto bg-white rounded shadow">
+                <div class="row">
+                    <div class="col-md-12 mb-5">
+                        <div class="m-5 text-center">
+                            <h1>Delete {{ task }}</h1>
+                        </div>
+                        <form method="post">
                         {% csrf_token %}
-                        <div class="card-body">
-                            <h5 class="text-center">Are you shore you want to delete the record?</h5>
-                        </div>
-                        <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-danger">YES</button>
-                            <a href="{% url 'list-of-tasks' %}" class="btn btn-primary">Back</a>
-                        </div>
-                    </form>
+                            <div class="card-body">
+                                <h5 class="text-center">Are you shore you want to delete the record?</h5>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="button button4 mt-3" style="background-color: #91ccd2; color: black;">YES</button>
+                                <a href="{% url 'task-details' company.id %}" class="button button4 mt-3" style="background-color: #91ccd2; color: black;">Back</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
+</div>
 {% endblock %}
