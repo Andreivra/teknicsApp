@@ -4,7 +4,7 @@ from agent.models import Agent
 
 class Company(models.Model):
     select_status_options = [('garantie', 'Garantie'), ('post_garantie', 'Post Garantie'), ('extern', 'Extern')]
-    select_delivery_options = [('curier', 'Curier'), ('predare ', 'Predat client'), ('dantex', 'Ridicat Dantex')]
+    select_delivery_options = [('Curier', 'Curier'), ('Predat Client ', 'predare'), ('Ridicat Dantex', 'dtx')]
 
     company_name = models.CharField(max_length=30)
     contact_name = models.CharField(max_length=30)
@@ -14,6 +14,7 @@ class Company(models.Model):
     task_name = models.CharField(max_length=50)
     task_description = models.TextField(max_length=600)
     task_asses = models.TextField(max_length=600)
+    task_resolve = models.TextField(max_length=1000)
     start_date = models.DateField()
     end_date = models.DateField()
     active = models.BooleanField(default=True)

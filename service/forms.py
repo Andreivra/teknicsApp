@@ -58,7 +58,7 @@ class TaskUpdateForm(forms.ModelForm):
     class Meta:
         model = Company
 #        fields = '__all__'
-        fields = ['company_name', 'contact_name', 'agent_name', 'phone', 'email', 'task_description', 'task_asses', 'end_date', 'complete']
+        fields = ['company_name', 'contact_name', 'agent_name', 'phone', 'email', 'task_description', 'task_asses', 'task_resolve', 'end_date', 'complete']
 
         widgets = {
             'company_name': TextInput(attrs={'placeholder': 'Please enter clients name', 'class': 'form-control'}),
@@ -70,6 +70,8 @@ class TaskUpdateForm(forms.ModelForm):
                                          'rows': 5}),
             'task_asses': Textarea(attrs={'placeholder': 'Please enter detailed service solution', 'class': 'form-control',
                                    'rows': 5}),
+            'task_resolve': Textarea(attrs={'placeholder': 'Please enter detailed service solution', 'class': 'form-control',
+                                     'rows': 5}),
             'start_date': DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'end_date': DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'select_status': Select(attrs={'class': 'form-select'}),

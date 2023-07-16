@@ -100,6 +100,16 @@
                                          </div>
                                     </div>
                                     {% endif %}
+                                    <br><br>
+                                    <br>
+                                    {% if company.task_resolve %}
+                                    <h5 class="d-flex justify-content-right">Constatare</h5>
+                                    <div class="card" style="border: 1px solid black;">
+                                        <div class="card-body">
+                                            {{ company.task_resolve }}
+                                         </div>
+                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
