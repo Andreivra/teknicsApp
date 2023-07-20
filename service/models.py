@@ -18,8 +18,8 @@ class Company(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
     active = models.BooleanField(default=True)
-    select_delivery = models.CharField(choices=select_delivery_options, max_length=13)
-    select_status = models.CharField(choices=select_status_options, max_length=13)
+    select_delivery = models.CharField(choices=select_delivery_options, max_length=14)
+    select_status = models.CharField(choices=select_status_options, max_length=14)
     complete = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)  # auto-now_add salveaza data si ora de creere
     updated_at = models.DateTimeField(auto_now=True)  # auto_now salveaza data ora cand se modifica intrarea

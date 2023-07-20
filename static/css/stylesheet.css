@@ -90,3 +90,25 @@
   border: 1px solid black;
   background-color: #91ccd2;
 }
+
+/* Media queries for responsiveness */
+
+/* Styles for screens smaller than 576px (e.g., mobile devices) */
+@media (max-width: 575.98px) {
+  /* Adjust the styles here for smaller screens */
+}
+
+/* Styles for screens between 576px and 767.98px (e.g., tablets) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* Adjust the styles here for tablets */
+}
+
+/* Styles for screens between 768px and 991.98px (e.g., small laptops) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Adjust the styles here for small laptops */
+}
+
+/* Styles for screens larger than 992px (e.g., large laptops and desktops) */
+@media (min-width: 992px) {
+  /* Adjust the styles here for large laptops and desktops */
+}
