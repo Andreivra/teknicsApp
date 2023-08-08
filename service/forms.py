@@ -22,7 +22,7 @@ class TaskForm(forms.ModelForm):
         ]
 
         widgets = {
-            'company_name': TextInput(attrs={'placeholder': 'Please enter clients name', 'class': 'form-control'}),
+            'company_name': TextInput(attrs={'placeholder': 'Please enter clients name', 'class': 'form-control', 'label': 'Nume companie'}),
             'contact_name': TextInput(attrs={'placeholder': 'Please enter clients contact person name', 'class': 'form-control'}),
             'agent_name': Select(attrs={'class': 'form-select'}),
             'phone': NumberInput(attrs={'placeholder': 'Please enter contact phone number', 'class': 'form-control'}),
@@ -61,7 +61,7 @@ class TaskUpdateForm(forms.ModelForm):
         fields = ['company_name', 'contact_name', 'agent_name', 'phone', 'email', 'task_description', 'task_asses', 'task_resolve', 'end_date', 'complete']
 
         widgets = {
-            'company_name': TextInput(attrs={'placeholder': 'Please enter clients name', 'class': 'form-control'}),
+            'nume': TextInput(attrs={'placeholder': 'Please enter clients name', 'class': 'form-control'}),
             'contact_name': TextInput(attrs={'placeholder': 'Please enter clients contact person name', 'class': 'form-control'}),
             'agent_name': Select(attrs={'class': 'form-select'}),
             'phone': NumberInput(attrs={'placeholder': 'Please enter contact phone number', 'class': 'form-control'}),

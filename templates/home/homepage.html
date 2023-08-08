@@ -29,7 +29,7 @@
                 <div class="row justify-content-center m-5">
                     <div class="card d-flex justify-content-center" id="div">
                         <div class="card-body">
-                            <h3 class="card-title text-center">Service </h3>
+                            <h5 class="mb-2 block font-sans text-xl text-center font-bold leading-snug tracking-normal text-blue-gray-900 antialiased">Service </h5>
                                 <a href="{% url 'list-of-tasks' %}">
                                     <img src="/static/images/service.jpg" alt="Logo" width="250" height="200"
                                                 class="d-inline-block align-text-top">
@@ -48,6 +48,8 @@
         </div>
     </div>
 </div>
+
+
 {% else %}
 
 <div class="container-fluid align-items-center d-flex justify-content-center">
@@ -55,18 +57,14 @@
         <div class="col-md-12">
             <div class="d-flow justify-content-center">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 mt-5 rounded shadow" style="border: 1px solid black; background-color: #91ccd2;">
-                            <div class="col-md-12" style="background-color: #91ccd2;">
-                                <div class="mb-5 mt-5 text-center">
-                                    <br><br><br><br>
-                                    <div class="descriere">
-                                        <h1>Welcome to the Landing Page!</h1>
-                                        <br><br>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum quam odio, quis placerat ante luctus eu. Sed aliquet dolor id sapien rutrum, id vulputate quam iaculis. Suspendisse consectetur mi id libero fringilla, in pharetra sem ullamcorper.</p>
-                                    </div>
-                                    <br><br><br><br>
-                                </div>
+                    <div class="col-sm-12 mt-5 rounded shadow" style="border: 1px solid black; background-color: whitesmoke;">
+                        <div class="col-md-12" style="background-color: whitesmoke;">
+                            <div class="mb-5 mt-5 text-center">
+                                <br><br><br><br>
+                                    <h1>Bine ati venit in sistemul Teknics EMS!</h1>
+                                    <br><br>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum quam odio, quis placerat ante luctus eu. Sed aliquet dolor id sapien rutrum, id vulputate quam iaculis. Suspendisse consectetur mi id libero fringilla, in pharetra sem ullamcorper.</p>
+                                <br><br><br><br>
                             </div>
                         </div>
                     </div>
@@ -77,23 +75,23 @@
 </div>
 <br/><br/><br/>
 <footer class="page-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <h6 class="text-uppercase font-weight-bold" style="color: white;">Additional Information</h6>
-                        <p style="color: white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum quam odio, quis placerat ante luctus eu. Sed aliquet dolor id sapien rutrum, id vulputate quam iaculis.</p>
-                        <p style="color: white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum quam odio, quis placerat ante luctus eu. Sed aliquet dolor id sapien rutrum, id vulputate quam iaculis.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <h6 class="text-uppercase font-weight-bold" style="color: white;">Contact</h6>
-                        <p style="color: white;">SC Dantex RO SRL, str. Carpenului, 7A, Sanpetru - Brasov
-                        <br/>info@dantex.ro
-                        <br/> (+40) 256 200 217
-                    </div>
-                </div>
-                <div class="footer-copyright text-center" style="color: #999999; padding: 2rem 0;">© 2023 Copyright: dantex.ro
-                </div>
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-8">
+                <h6 class="text-uppercase">Additional Information</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum quam odio, quis placerat ante luctus eu. Sed aliquet dolor id sapien rutrum, id vulputate quam iaculis.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum quam odio, quis placerat ante luctus eu. Sed aliquet dolor id sapien rutrum, id vulputate quam iaculis.</p>
             </div>
-        </footer>
+            <div class="col-md-4">
+                <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                <p>SC Dantex RO SRL, str. Carpenului, 7A, Sanpetru - Brasov
+                <br/>info@dantex.ro
+                <br/> (+40) 256 200 217
+            </div>
+        </div>
+        <div class="footer-copyright text-center" style="color: #999999; padding: 2rem 0;">© 2023 Copyright: dantex.ro
+        </div>
+    </div>
+</footer>
 {% endif %}
 {% endblock %}

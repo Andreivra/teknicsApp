@@ -4,53 +4,94 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
-<div class="container-fluid align-center d-flex justify-content-center">
-    <div class="row">
-        <div class="col-md-8">
-            <h1 class="d-flex justify-content-center">Lista task-uri: {{ current_date_time|date:"d/m/Y" }}</h1>
-                {% if all_agents %}
-                    <table class="table table-primary table-striped">
-                        <thead>
-                            <tr>
-                                <th class="text-center" scope="col">Nume Agent</th>
-                                <th class="text-center" scope="col">Prenume Agent</th>
-                                <th class="text-center" scope="col">E-mail</th>
-                                <th class="text-center" scope="col">Created at</th>
-                                <th class="text-center" scope="col">Actions</th>
-                            </tr>
-                        </thead>
-                        {% for agent in all_agents %}
-                        <tbody>
-                            <tr>
-                                <td class="text-center">{{ agent.first_name }}</td>
-                                <td class="text-center">{{ agent.last_name }}</td>
-                                <td class="text-center">{{ agent.email }}</td>
-                                <td class="text-center">{{ agent.created_at|date:"d-m-Y" }}</td>
-                                <td class="text-center">
-                                    <a href="{% url 'agent-details' agent.id %}" class="button button3 me-md-1" type="button">Detalii</a>
-                                </td>
-                            </tr>
+    {% if user.is_authenticated %}
+        <div class="container-fluid align-center d-flex justify-content-center">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="d-flow flow-column min-vh-80 justify-content-center">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 mx-auto bg-white rounded shadow">
+                                    <div class="row-md-12 justify-content-center">
+                                        <div class="m-5 mb-5 mt-5 text-center">
+                                            <div class="d-flex justify-content-center">
+                                                <div class="card-body">
+                                                    <h3 class="card-title text-center">Lista agenti interni</h3>
+                                                    <hr>
+                                                </div>
+                                            </div>
+                                            <br><br>
+                                            <hr>
+                                            {% if all_agents %}
+                                                <table class="table table-primary table-striped">
+                                                    <thead>
+                                                    <tr>
+                                                        <th class="text-center">Nume Agent</th>
+                                                        <th class="text-center" scope="col">Prenume Agent</th>
+                                                        <th class="text-center" scope="col">E-mail</th>
+                                                        <th class="text-center" scope="col">Created at</th>
+                                                        <th class="text-center" scope="col">Actions</th>
+                                                    </tr>
+                                                    </thead>
+                                                    {% for agent in all_agents %}
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="text-center">{{ agent.first_name }}</td>
+                                                            <td class="text-center">{{ agent.last_name }}</td>
+                                                            <td class="text-center">{{ agent.email }}</td>
+                                                            <td class="text-center">{{ agent.created_at|date:"d-m-Y" }}</td>
+                                                            <td class="text-center">
+                                                                <a href="{% url 'agent-details' agent.id %}"
+                                                                   class="button button3 me-md-1"
+                                                                   type="button">Detalii</a>
+                                                            </td>
+                                                        </tr>
 
-                        </tbody>
-                        {% endfor %}
-                    </table>
-                {% else %}
-                        <h3 class="text-center"> Nu avem agenti creati</h3>
-                {% endif %}
-        </div>
-        <div class="col-md-2">
-            <h1 class="d-flex justify-content-center">Meniu</h1>
-            <br><br>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="{% url 'create-agent' %}" class="menu_button button1 me-md-2" type="button">Agent nou</a>
+                                                        </tbody>
+                                                    {% endfor %}
+                                                </table>
+                                            {% else %}
+                                                <h3 class="text-center"> Nu avem agenti creati</h3>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="d-flow flex-column min-vh-80 justify-content-center">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 mx-auto bg-white rounded shadow">
+                                    <div class="col-md-12">
+                                        <div class="m-8 mb-5 mt-5 text-center">
+                                            <div class="d-flex justify-content-center">
+                                                <div class="card-body">
+                                                    <h3 class="card-title text-center">Meniu</h3>
+                                                    <hr>
+                                                </div>
+                                            </div>
+                                            <br><br>
+                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                <a href="{% url 'create-agent' %}" class="menu_button button1 me-md-2"
+                                                   type="button" style="border-radius: 40px;">Agent nou</a>
+                                            </div>
+                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                <a href="{% url 'homepage' %}" class="menu_button button1 me-md-2"
+                                                   type="button" style="border-radius: 40px;">Back</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="{% url 'homepage' %}" class="menu_button button1 me-md-2" type="button">Back</a>
-            </div>
         </div>
-    </div>
-</div>
 
-{% endif %}
+
+    {% endif %}
 {% endblock %}

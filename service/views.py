@@ -1,6 +1,4 @@
-
 from datetime import datetime
-
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
