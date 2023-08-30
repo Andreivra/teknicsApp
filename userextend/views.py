@@ -7,8 +7,7 @@ from django.core.mail import send_mail, EmailMessage
 from django.template.loader import get_template
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
-
-from teknicsApp.settings import EMAIL_HOST_USER
+# from teknicsApp.settings import EMAIL_HOST_USER
 from userextend.forms import UserForm, PasswordChangeNewForm
 from userextend.models import History
 

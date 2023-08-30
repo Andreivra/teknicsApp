@@ -12,9 +12,9 @@
                         <div class="col-sm-12 col-md-12 mx-auto bg-white rounded shadow">
                             <div class="col-md-12">
                                 <div class="m-8 mb-5 mt-5 text-center">
-                                    <div class="card d-flex justify-content-center" style="border: 1px solid black; border-radius: 40px; background-color: #86b0b6;">
+                                    <div class="d-flex justify-content-center">
                                         <div class="card-body">
-                                            <h3 class="card-title text-center">Filters </h3>
+                                            <h3 class="card-title text-center">Filters </h3><hr>
                                         </div>
                                     </div>
                                     <br><br>
@@ -41,12 +41,12 @@
                         <div class="col-sm-12 col-md-12 mx-auto bg-white rounded shadow">
                             <div class="row-md-12 justify-content-center">
                                 <div class="m-5 mb-5 mt-5 text-center">
-                                    <div class="card d-flex justify-content-center" style="border: 1px solid black; border-radius: 40px; background-color: #86b0b6;">
+                                    <div class="d-flex justify-content-center">
                                         <div class="card-body">
-                                            <h3 class="card-title text-center">Lista task-uri finalizate</h3>
+                                            <h3 class="card-title text-center">Lista task-uri finalizate</h3><hr>
                                         </div>
                                     </div>
-                                    <br><br><hr>
+                                    <br><br>
                                     {% if all_tasks %}
                                         {% for task in all_tasks %}
                                             {% if task.complete %}
@@ -102,21 +102,19 @@
                         <div class="col-sm-12 col-md-12 mx-auto bg-white rounded shadow">
                             <div class="col-md-12">
                                 <div class="m-8 mb-5 mt-5 text-center">
-                                    <div class="card d-flex justify-content-center" style="border: 1px solid black; border-radius: 40px; background-color: #86b0b6;">
+                                    <div class="d-flex justify-content-center">
                                         <div class="card-body">
-                                            <h3 class="card-title text-center">Meniu</h3>
+                                            <h3 class="card-title text-center">Meniu</h3><hr>
                                         </div>
                                     </div>
                                     <br><br>
-                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <a href="{% url 'create-task' %}" class="menu_button button4 btn-success me-md-2" type="button" style="color: #070606; border-radius: 40px;">Task nou</a>
-                                    </div>
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                         <a href="{% url 'list-of-tasks' %}" class="menu_button button4 me-md-2" type="button" style="color: #070606; border-radius: 40px;">Task-uri nefinalizate</a>
                                     </div>
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                         <a href="{% url 'homepage' %}" class="menu_button button4 me-md-2" type="button" style="color: #070606; border-radius: 40px;">Back</a>
                                     </div>
+                                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                                 </div>
                             </div>
                         </div>
